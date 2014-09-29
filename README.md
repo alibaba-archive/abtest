@@ -21,7 +21,7 @@ abtest
 [gittip-image]: https://img.shields.io/gittip/dead-horse.svg?style=flat-square
 [gittip-url]: https://www.gittip.com/dead-horse/
 
-a ab test client for koa or express
+an A/B test client for node web
 
 ## Installation
 
@@ -30,6 +30,36 @@ $ npm install abtest
 ```
 
 ## Usage
+
+use with koa:
+
+```js
+var ABTest = ABTest();
+var app = koa();
+
+app.use(function* (next) {
+  this.abtest = ABTest({
+    getCookie: function () {},  // custom your getCookie method
+    setCookie: function () {},  // custom your setCookie method
+    query: this.query
+  });
+});
+
+app.use(function* (next) {
+  this.abtest.configure({
+    bucket: {
+      a: 9,
+      b: 1
+    },
+    enableQuery: true,
+    enableCookie: true
+  });
+});
+
+app.use(function* (next) {
+  this.body = this.abtest.bucket; // 10% a, 90% b
+});
+```
 
 ### License
 

@@ -1,12 +1,12 @@
 {
   "name": "abtest",
   "version": "1.0.0",
-  "description": "a ab test client for koa or express",
+  "description": "an A/B test client for node web",
   "main": "lib/abtest.js",
   "scripts": {
     "test": "make test"
   },
-  "keywords": [],
+  "keywords": ["web", "AB testing"],
   "author": {
     "name": "dead-horse",
     "email": "dead_horse@qq.com",
