@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "an A/B test client for node web",
   "main": "lib/abtest.js",
+  "files": [
+    "lib",
+    "LICENSE",
+    "History.md"
+  ],
   "scripts": {
     "test": "make test"
   },
