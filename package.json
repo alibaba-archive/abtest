@@ -27,11 +27,11 @@
     "debug": "~2.1.0"
   },
   "devDependencies": {
-    "autod": "~0.3.2",
+    "autod": "1",
     "istanbul-harmony": "~0.3.0",
     "koa": "~0.13.0",
-    "mocha": "~1.21.4",
-    "should": "~4.0.4",
+    "mocha": "~2.0.1",
+    "should": "~4.2.1",
     "supertest": "~0.14.0"
   },
   "engine": {

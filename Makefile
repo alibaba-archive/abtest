@@ -28,7 +28,8 @@ test-cov cov: install
 test-all: install test cov
 
 autod: install
-	@./node_modules/.bin/autod -w --prefix "~"
+	@./node_modules/.bin/autod -w --prefix "~" \
+  -D mocha,should,istanbul-harmony
 	@$(MAKE) install
 
 .PHONY: test
