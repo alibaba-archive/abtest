@@ -1,6 +1,6 @@
 {
   "name": "abtest",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "an A/B test client for node web",
   "main": "lib/abtest.js",
   "files": [
