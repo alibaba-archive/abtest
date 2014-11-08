@@ -29,6 +29,13 @@ an A/B test client for node web
 $ npm install abtest
 ```
 
+## Feature
+
+- Random split user into different buckets.
+- Record user's bucket in cookie.
+- Force choose bucket by query.
+- Expire cookie when buckets changed.
+
 ## Usage
 
 use with koa:
