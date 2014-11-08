@@ -23,12 +23,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "debug": "~2.0.0"
+    "crc": "~3.0.0",
+    "debug": "~2.1.0"
   },
   "devDependencies": {
     "autod": "~0.3.2",
     "istanbul-harmony": "~0.3.0",
-    "koa": "~0.12.2",
+    "koa": "~0.13.0",
     "mocha": "~1.21.4",
     "should": "~4.0.4",
     "supertest": "~0.14.0"

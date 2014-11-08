@@ -9,6 +9,7 @@
  */
 
 var request = require('supertest');
+var crc = require('crc').crc32;
 var ABTest = require('..');
 var koa = require('koa');
 
@@ -28,37 +29,41 @@ describe('ABTest', function () {
       .end(function (err, res) {
         var cookie = res.headers['set-cookie'];
         var body = res.text.toString();
-        cookie[0].should.match(new RegExp('abtest=' + body));
+        cookie[0].should.match(new RegExp('abtest=' + body + ':(\\d)+'));
         done(err);
       });
     });
 
     it('should get bucket from cookie', function (done) {
+      var buckets = {
+        a: 0,
+        b: 10
+      };
       var app = App({
-        buckets: {
-          a: 0,
-          b: 10
-        }
+        buckets: buckets
       });
+      var crcstr = crc(JSON.stringify(buckets));
 
       request(app)
       .get('/')
-      .set('cookie', 'abtest=a')
+      .set('cookie', 'abtest=a:' + crcstr)
       .expect(200)
       .expect('a', done);
     });
 
     it('should get bucket from query', function (done) {
+      var buckets = {
+        a: 0,
+        b: 10
+      };
       var app = App({
-        buckets: {
-          a: 0,
-          b: 10
-        }
+        buckets: buckets
       });
+      var crcstr = crc(JSON.stringify(buckets));
 
       request(app)
       .get('/path?abtest=a')
-      .set('cookie', 'abtest=b')
+      .set('cookie', 'abtest=b:' + crcstr)
       .expect(200)
       .expect('a', done);
     });
@@ -74,6 +79,21 @@ describe('ABTest', function () {
       request(app)
       .get('/path?abtest=c')
       .set('cookie', 'abtest=c')
+      .expect(200)
+      .expect('b', done);
+    });
+
+    it('should get bucket from method when cookie crc not match', function (done) {
+      var app = App({
+        buckets: {
+          a: 0,
+          b: 10
+        }
+      });
+
+      request(app)
+      .get('/path')
+      .set('cookie', 'abtest=a:xxxx')
       .expect(200)
       .expect('b', done);
     });
