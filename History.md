@@ -1,4 +1,9 @@
 
+1.2.0 / 2016-07-29 
+==================
+
+  * feat: add a custom parameter configuration for query (#1)
+
 1.1.0 / 2014-11-08 
 ==================
 
