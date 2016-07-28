@@ -68,6 +68,24 @@ describe('ABTest', function () {
       .expect('a', done);
     });
 
+    it('should get bucket from custom query parameter', function (done) {
+      var buckets = {
+        a: 0,
+        b: 10
+      };
+      var app = App({
+        buckets: buckets,
+        query: 'x_abtest',
+      });
+      var crcstr = crc(JSON.stringify(buckets));
+
+      request(app)
+      .get('/path?x_abtest=a')
+      .set('cookie', 'abtest=b:' + crcstr)
+      .expect(200)
+      .expect('a', done);
+    });
+
     it('should get bucket from method when cookie and query invalid', function (done) {
       var app = App({
         buckets: {

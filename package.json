@@ -11,7 +11,10 @@
   "scripts": {
     "test": "make test"
   },
-  "keywords": ["web", "AB testing"],
+  "keywords": [
+    "web",
+    "AB testing"
+  ],
   "author": {
     "name": "dead-horse",
     "email": "dead_horse@qq.com",
@@ -23,16 +26,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "crc": "~3.0.0",
-    "debug": "~2.1.0"
+    "crc": "~3.4.0",
+    "debug": "~2.2.0"
   },
   "devDependencies": {
-    "autod": "1",
-    "istanbul-harmony": "~0.3.0",
-    "koa": "~0.13.0",
-    "mocha": "~2.0.1",
-    "should": "~4.2.1",
-    "supertest": "~0.14.0"
+    "autod": "2.6.1",
+    "istanbul-harmony": "~0.3.16",
+    "koa": "~1.2.1",
+    "mocha": "~2.5.3",
+    "should": "~10.0.0",
+    "supertest": "~1.2.0"
   },
   "engine": {
     "node": ">=0.10"
