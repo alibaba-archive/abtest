@@ -27,7 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "crc": "~3.4.0",
-    "debug": "~2.2.0"
+    "debug": "~2.6.7"
   },
   "devDependencies": {
     "autod": "2.6.1",
